@@ -74,7 +74,12 @@ python train.py --train_data data_lmdb_release/training/data/data_train --valid_
 ```
 ## 執行文字定位及辨識
 ### 執行文字定位模型
-
+若要偵測字元，需調整craft_run.py中的link_threshold參數，調整為1
+若要偵測字串，需調整craft_run.py中的link_threshold參數，調整為0.4
+輸出座標點文字檔`CraftOutput.txt`
+```python
+python ./.py
+```
 ### 擷取出影像中的文字區塊儲存成影像
 根據文字定位模型所輸出的座標點文字檔`CraftOutput.txt`影像中的文字區塊擷取出來儲存成影像，且影像名稱命名為`原檔名_x1_y1_x2_y2_x3_y3_x4_y4.jpg`儲存至`positionCrop`資料夾內
 ```python
