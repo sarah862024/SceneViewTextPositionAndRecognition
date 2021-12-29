@@ -13,11 +13,14 @@ Taiwan Scene View Text Position and Recognition
     * 建立lmdb資料集
     * 訓練模型
   * 執行文字定位及辨識
+    * 執行文字定位模型
+    * 擷取出影像中的文字區塊儲存成影像
+    * 執行文字辨識模型
   * 辨識結果篩選
   * 參考來源
 
 ## 訓練資料前處理
-### 取得中文字元文字檔(ChineseCharList.txt)  
+### 取得中文字元文字檔`ChineseCharList.txt`  
 根據全部json檔案中的Label值取得不重複的所有中文字元  
 ```python
 python ./toolCode/getLabelCharFromJson.py
@@ -62,13 +65,23 @@ python create_lmdb_dataset.py --inputPath ./trainingDataset/ --gtFile ./training
 python create_lmdb_dataset.py --inputPath ./trainingDataset/ --gtFile ./trainingDataset/test_GT.txt --outputPath ./data_lmdb_release/training/data/data_test/
 ```
 ### 訓練模型
-準備好中文字元文字檔(ChineseCharList.txt)以及訓練集、驗證集、測試集的三組mdb檔案後，即可開始訓練
+準備好中文字元文字檔`ChineseCharList.txt`以及訓練集、驗證集、測試集的三組mdb檔案後，即可開始訓練
 ```python
 python train.py --train_data data_lmdb_release/training/data/data_train --valid_data data_lmdb_release/training/data/data_valid --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn --data_filtering_off
 ```
 ## 執行文字定位及辨識
+### 執行文字定位模型
 
-
+### 擷取出影像中的文字區塊儲存成影像
+根據文字定位模型所輸出的座標點文字檔`CraftOutput.txt`影像中的文字區塊擷取出來儲存成影像，且影像名稱命名為`原檔名_x1_y1_x2_y2_x3_y3_x4_y4.jpg`儲存至`positionCrop`資料夾內
+```python
+python ./toolCode/generateCropImgFromCraftTxt.py
+```
+### 執行文字辨識模型
+依照`positionCrop`資料夾中的影像進行文字辨識，輸出結果文字檔`demoResult.txt`
+```python
+python demo.py --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn --image_folder ./positionCrop --saved_model ./saved_models/TPS-ResNet-BiLSTM-Attn-Seed1111/best_accuracy.pth
+```
 ## 辨識結果篩選
 
 
