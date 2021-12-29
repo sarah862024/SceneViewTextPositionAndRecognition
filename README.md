@@ -121,7 +121,7 @@ python ./toolCode/filterTxtToCsvResultAdvance.py
 ## 參考來源
 文字定位模型:
 https://github.com/clovaai/CRAFT-pytorch  
-擴增資料方法:  
-
+擴增資料方法:
+https://github.com/Belval/TextRecognitionDataGenerator
 文字辨識模型:
 https://github.com/clovaai/deep-text-recognition-benchmark
