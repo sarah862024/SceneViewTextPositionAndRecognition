@@ -11,7 +11,6 @@ Taiwan Scene View Text Position and Recognition
     * [分割訓練集、驗證集、測試集](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%88%86%E5%89%B2%E8%A8%93%E7%B7%B4%E9%9B%86%E9%A9%97%E8%AD%89%E9%9B%86%E6%B8%AC%E8%A9%A6%E9%9B%86 "link")
     * [生成Ground Truth](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E7%94%9F%E6%88%90ground-truth "link")
   * [擴增資料處理](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B4%E5%A2%9E%E8%B3%87%E6%96%99%E8%99%95%E7%90%86 "link")
-    * 
   * [訓練文字辨識模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E6%96%87%E5%AD%97%E8%BE%A8%E8%AD%98%E6%A8%A1%E5%9E%8B "link")
     * [建立lmdb資料集](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%BB%BA%E7%AB%8Blmdb%E8%B3%87%E6%96%99%E9%9B%86 "link")
     * [訓練模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E6%A8%A1%E5%9E%8B "link")
