@@ -65,7 +65,7 @@ python create_lmdb_dataset.py --inputPath ./trainingDataset/ --gtFile ./training
 準備好中文字元文字檔(ChineseCharList.txt)以及訓練集、驗證集、測試集的三組mdb檔案後，即可開始訓練
 ```python
 python train.py --train_data data_lmdb_release/training/data/data_train --valid_data data_lmdb_release/training/data/data_valid --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn --data_filtering_off
-
+```
 ## 執行文字定位及辨識
 
 
