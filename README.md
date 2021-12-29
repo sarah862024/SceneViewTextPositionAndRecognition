@@ -3,7 +3,7 @@ Taiwan Scene View Text Position and Recognition
 
 * 目錄
   * 訓練資料前處理
-    * 取得中文字元文字檔(ChineseCharList.txt)
+    * [取得中文字元文字檔(ChineseCharList.txt)](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%96%E5%BE%97%E4%B8%AD%E6%96%87%E5%AD%97%E5%85%83%E6%96%87%E5%AD%97%E6%AA%94chinesecharlisttxt "link")
     * 擷取出資料集所有影像中的文字區塊
     * 分割訓練集、驗證集、測試集
     * 生成Ground Truth
@@ -115,8 +115,8 @@ python ./toolCode/filterTxtToCsvResultAdvance.py
 ```
 ## 參考來源
 文字定位模型:
-https://github.com/clovaai/CRAFT-pytorch
-擴增資料方法:
+https://github.com/clovaai/CRAFT-pytorch  
+擴增資料方法:  
 
 文字辨識模型:
 https://github.com/clovaai/deep-text-recognition-benchmark
