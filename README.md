@@ -2,25 +2,25 @@
 Taiwan Scene View Text Position and Recognition
 
 * 目錄
-  * 訓練資料前處理
+  * [訓練資料前處理](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E8%B3%87%E6%96%99%E5%89%8D%E8%99%95%E7%90%86 "link")
     * [取得中文字元文字檔(ChineseCharList.txt)](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%96%E5%BE%97%E4%B8%AD%E6%96%87%E5%AD%97%E5%85%83%E6%96%87%E5%AD%97%E6%AA%94chinesecharlisttxt "link")
-    * 擷取出資料集所有影像中的文字區塊
-    * 分割訓練集、驗證集、測試集
-    * 生成Ground Truth
-  * 擴增資料處理
+    * [擷取出資料集所有影像中的文字區塊](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B7%E5%8F%96%E5%87%BA%E8%B3%87%E6%96%99%E9%9B%86%E6%89%80%E6%9C%89%E5%BD%B1%E5%83%8F%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E5%8D%80%E5%A1%8A "link")
+    * [分割訓練集、驗證集、測試集](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%88%86%E5%89%B2%E8%A8%93%E7%B7%B4%E9%9B%86%E9%A9%97%E8%AD%89%E9%9B%86%E6%B8%AC%E8%A9%A6%E9%9B%86 "link")
+    * [生成Ground Truth](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E7%94%9F%E6%88%90ground-truth "link")
+  * [擴增資料處理](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B4%E5%A2%9E%E8%B3%87%E6%96%99%E8%99%95%E7%90%86 "link")
     * 
-  * 訓練文字辨識模型
-    * 建立lmdb資料集
-    * 訓練模型
-  * 執行文字定位及辨識
-    * 執行文字定位模型
-    * 擷取出影像中的文字區塊儲存成影像
-    * 執行文字辨識模型
-  * 辨識結果篩選
-    * 如果將文字定位結果分為Word、Char兩部分個別進行文字辨識(如沒有則略過此部分)
-    * 基本篩選
-    * 基本篩選+字串文字重組 
-  * 參考來源
+  * [訓練文字辨識模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E6%96%87%E5%AD%97%E8%BE%A8%E8%AD%98%E6%A8%A1%E5%9E%8B "link")
+    * [建立lmdb資料集](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%BB%BA%E7%AB%8Blmdb%E8%B3%87%E6%96%99%E9%9B%86 "link")
+    * [訓練模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E6%A8%A1%E5%9E%8B "link")
+  * [執行文字定位及辨識](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%B7%E8%A1%8C%E6%96%87%E5%AD%97%E5%AE%9A%E4%BD%8D%E5%8F%8A%E8%BE%A8%E8%AD%98 "link")
+    * [執行文字定位模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%B7%E8%A1%8C%E6%96%87%E5%AD%97%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%9E%8B "link")
+    * [擷取出影像中的文字區塊儲存成影像](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B7%E5%8F%96%E5%87%BA%E5%BD%B1%E5%83%8F%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E5%8D%80%E5%A1%8A%E5%84%B2%E5%AD%98%E6%88%90%E5%BD%B1%E5%83%8F "link")
+    * [執行文字辨識模型](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%B7%E8%A1%8C%E6%96%87%E5%AD%97%E8%BE%A8%E8%AD%98%E6%A8%A1%E5%9E%8B "link")
+  * [辨識結果篩選](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%BE%A8%E8%AD%98%E7%B5%90%E6%9E%9C%E7%AF%A9%E9%81%B8 "link")
+    * [如果將文字定位結果分為Word、Char兩部分個別進行文字辨識(如沒有則略過此部分)](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%A6%82%E6%9E%9C%E5%B0%87%E6%96%87%E5%AD%97%E5%AE%9A%E4%BD%8D%E7%B5%90%E6%9E%9C%E5%88%86%E7%82%BAwordchar%E5%85%A9%E9%83%A8%E5%88%86%E5%80%8B%E5%88%A5%E9%80%B2%E8%A1%8C%E6%96%87%E5%AD%97%E8%BE%A8%E8%AD%98%E5%A6%82%E6%B2%92%E6%9C%89%E5%89%87%E7%95%A5%E9%81%8E%E6%AD%A4%E9%83%A8%E5%88%86 "link")
+    * [基本篩選](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%BA%E6%9C%AC%E7%AF%A9%E9%81%B8 "link")
+    * [基本篩選+字串文字重組](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%BA%E6%9C%AC%E7%AF%A9%E9%81%B8%E5%AD%97%E4%B8%B2%E6%96%87%E5%AD%97%E9%87%8D%E7%B5%84 "link")
+  * [參考來源](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90 "link")
 
 ## 訓練資料前處理
 ### 取得中文字元文字檔`ChineseCharList.txt`  
@@ -114,9 +114,9 @@ python ./toolCode/filterTxtToCsvResult.py
 python ./toolCode/filterTxtToCsvResultAdvance.py
 ```
 ## 參考來源
-文字定位模型:
+文字定位模型:  
 https://github.com/clovaai/CRAFT-pytorch  
 擴增資料方法:  
 
-文字辨識模型:
+文字辨識模型:  
 https://github.com/clovaai/deep-text-recognition-benchmark
