@@ -7,7 +7,7 @@ Taiwan Scene View Text Position and Recognition
     * 擷取出資料集所有影像中的文字區塊
     * 分割訓練集、驗證集、測試集
     * 生成Ground Truth
-  *  擴增資料處理
+  * 擴增資料處理
     * 
   * 訓練文字辨識模型
     * 建立lmdb資料集
@@ -17,6 +17,9 @@ Taiwan Scene View Text Position and Recognition
     * 擷取出影像中的文字區塊儲存成影像
     * 執行文字辨識模型
   * 辨識結果篩選
+    * 基本篩選
+    * 基本篩選+字串文字重組
+    * 
   * 參考來源
 
 ## 訓練資料前處理
@@ -83,6 +86,17 @@ python ./toolCode/generateCropImgFromCraftTxt.py
 python demo.py --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn --image_folder ./positionCrop --saved_model ./saved_models/TPS-ResNet-BiLSTM-Attn-Seed1111/best_accuracy.pth
 ```
 ## 辨識結果篩選
-
+篩選方式有兩種，選擇其中一種執行即可
+### 基本篩選
+僅過濾信心值<0.6以及非純中文且只有一個字的資料，輸出`resultCSV.csv`即為最終結果
+```python
+python ./toolCode/filterTxtToCsvResult.py
+```
+### 基本篩選+字串文字重組
+除了過濾信心值<0.6以及非純中文且只有一個字的資料以外，針對信心值低於0.6的中文字串做重新組合的演算法，輸出`resultCSV.csv`即為最終結果
+```python
+python ./toolCode/filterTxtToCsvResultAdvance.py
+```
+### 
 
 ## 參考來源
