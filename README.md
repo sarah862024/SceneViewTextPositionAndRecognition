@@ -50,6 +50,7 @@ python ./toolCode/dividValidAndTest.py
 python ./toolCode/generateGT.py
 ```
 ## 擴增資料處理
+pip install trdg
 
 
 ## 訓練文字辨識模型
