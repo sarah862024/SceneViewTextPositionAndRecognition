@@ -21,7 +21,7 @@ def saveCropImage(pointList, image, outputImageName):
     minY = min(pointArray[:,1])
     maxY = max(pointArray[:,1])
     cropImage = image[minY:maxY, minX:maxX]
-    cv2.imencode('.jpg', cropImage)[1].tofile('./outputDataset/image/' + outputImageName)
+    cv2.imencode('.jpg', cropImage)[1].tofile('./cropOutput/image/' + outputImageName)
 
 # 將圖片中的指定區塊存成圖片(將背景區塊填黑)
 def saveCropImageWithBlackBackground(pointList, image, outputImageName):
@@ -36,14 +36,14 @@ def saveCropImageWithBlackBackground(pointList, image, outputImageName):
     minY = min(pointArray[:,1])
     maxY = max(pointArray[:,1])
     cropImage = maskedImage[minY:maxY, minX:maxX]
-    cv2.imencode('.jpg', cropImage)[1].tofile('./outputDataset/image/' + outputImageName)
+    cv2.imencode('.jpg', cropImage)[1].tofile('./cropOutput/image/' + outputImageName)
 
 # Dataset中json跟img的上一層
 folderPath = './train/train/'
 imageCnt = 0
 
 #ground truth文字檔的輸出位置
-# outputTxtPath = './outputDataset/GT.txt'
+# outputTxtPath = './cropOutput/GT.txt'
 # txtFile = open(outputTxtPath, 'w', encoding = 'utf8')
 
 allFileList = os.listdir(folderPath + 'json/')
