@@ -17,9 +17,9 @@ Taiwan Scene View Text Position and Recognition
     * 擷取出影像中的文字區塊儲存成影像
     * 執行文字辨識模型
   * 辨識結果篩選
+    * 如果將文字定位結果分為Word、Char兩部分個別進行文字辨識(如沒有則略過此部分)
     * 基本篩選
-    * 基本篩選+字串文字重組
-    * 
+    * 基本篩選+字串文字重組 
   * 參考來源
 
 ## 訓練資料前處理
@@ -86,6 +86,22 @@ python ./toolCode/generateCropImgFromCraftTxt.py
 python demo.py --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn --image_folder ./positionCrop --saved_model ./saved_models/TPS-ResNet-BiLSTM-Attn-Seed1111/best_accuracy.pth
 ```
 ## 辨識結果篩選
+### 如果將文字定位結果分為Word、Char兩部分個別進行文字辨識(如沒有則略過此部分)
+如果將文字定位結果分為Word、Char兩部分個別進行文字辨識，辨識結果的兩個文字檔分別為`demoResult_Char.txt`以及`demoResult_Word.txt`
+先針對`demoResult_Word.txt`的結果過濾純中文且只有一個字的項目，輸出`demoResult_Word_filter.txt`的結果
+```python
+python ./toolCode/demoResult_Word.py
+```
+再針對`demoResult_Char.txt`的結果過濾英文及數字的項目，輸出`demoResult_Char_filter.txt`的結果
+```python
+python ./toolCode/demoResult_Char.py
+```
+然後手動將`demoResult_Word_filter.txt`以及`demoResult_Char_filter.txt`合併成同一個文字檔`demoResult_WordChar_filter.txt`
+再執行`sortDemoWordChar.py`來對資料進行排序，得到排序後的輸出結果`demoResult_WordChar_filter_sorted.txt`
+```python
+python ./toolCode/sortDemoWordChar.py
+```
+接著下面篩選的部分就使用此文字檔`demoResult_WordChar_filter_sorted.txt`去篩選  
 篩選方式有兩種，選擇其中一種執行即可
 ### 基本篩選
 僅過濾信心值<0.6以及非純中文且只有一個字的資料，輸出`resultCSV.csv`即為最終結果
@@ -97,6 +113,4 @@ python ./toolCode/filterTxtToCsvResult.py
 ```python
 python ./toolCode/filterTxtToCsvResultAdvance.py
 ```
-### 
-
 ## 參考來源
