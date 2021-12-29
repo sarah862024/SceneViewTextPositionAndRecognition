@@ -126,3 +126,10 @@ https://github.com/clovaai/CRAFT-pytorch
 https://github.com/Belval/TextRecognitionDataGenerator
 文字辨識模型:
 https://github.com/clovaai/deep-text-recognition-benchmark
+
+## 環境
+torch==0.4.1.post2
+torchvision==0.2.1
+opencv-python==3.4.2.17
+scikit-image==0.14.2
+scipy==1.1.0
