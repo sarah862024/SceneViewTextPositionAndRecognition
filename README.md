@@ -2,6 +2,9 @@
 Taiwan Scene View Text Position and Recognition
 
 * 目錄
+  * 環境
+    * 文字定位模型環境
+    * 文字辨識模型環境
   * [訓練資料前處理](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E8%B3%87%E6%96%99%E5%89%8D%E8%99%95%E7%90%86 "link")
     * [取得中文字元文字檔(ChineseCharList.txt)](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%96%E5%BE%97%E4%B8%AD%E6%96%87%E5%AD%97%E5%85%83%E6%96%87%E5%AD%97%E6%AA%94chinesecharlisttxt "link")
     * [擷取出資料集所有影像中的文字區塊](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B7%E5%8F%96%E5%87%BA%E8%B3%87%E6%96%99%E9%9B%86%E6%89%80%E6%9C%89%E5%BD%B1%E5%83%8F%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E5%8D%80%E5%A1%8A "link")
@@ -21,7 +24,20 @@ Taiwan Scene View Text Position and Recognition
     * [基本篩選](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%BA%E6%9C%AC%E7%AF%A9%E9%81%B8 "link")
     * [基本篩選+字串文字重組](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%9F%BA%E6%9C%AC%E7%AF%A9%E9%81%B8%E5%AD%97%E4%B8%B2%E6%96%87%E5%AD%97%E9%87%8D%E7%B5%84 "link")
   * [參考來源](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90 "link")
-
+## 環境
+### 文字定位模型環境
+torch==0.4.1.post2
+torchvision==0.2.1
+opencv-python==3.4.2.17
+scikit-image==0.14.2
+scipy==1.1.0
+### 文字辨識模型環境
+torch==1.10.0+cu113
+lmdb==1.2.1
+pillow==8.2.0
+torchvision==0.11.1+cu113
+nltk==3.6.5
+natsort==8.0.0
 ## 訓練資料前處理
 ### 取得中文字元文字檔`ChineseCharList.txt`  
 根據全部json檔案中的Label值取得不重複的所有中文字元  
@@ -50,9 +66,9 @@ python ./toolCode/dividValidAndTest.py
 python ./toolCode/generateGT.py
 ```
 ## 擴增資料處理
-pip install trdg
-
-
+安裝此套件  
+`pip install trdg`  
+參考`參考資料`的擴增資料方法
 ## 訓練文字辨識模型
 ### 建立lmdb資料集
 分別建立訓練集、驗證集、測試集的lmdb資料集，  
@@ -126,10 +142,3 @@ https://github.com/clovaai/CRAFT-pytorch
 https://github.com/Belval/TextRecognitionDataGenerator
 文字辨識模型:
 https://github.com/clovaai/deep-text-recognition-benchmark
-
-## 環境
-torch==0.4.1.post2
-torchvision==0.2.1
-opencv-python==3.4.2.17
-scikit-image==0.14.2
-scipy==1.1.0
