@@ -2,9 +2,9 @@
 Taiwan Scene View Text Position and Recognition
 
 * 目錄
-  * 環境
-    * 文字定位模型環境
-    * 文字辨識模型環境
+  * [環境](https://github.com/sarah862024/SceneViewTextPositionAndRecognition/blob/main/README.md#%E7%92%B0%E5%A2%83 "link")
+    * [文字定位模型環境](https://github.com/sarah862024/SceneViewTextPositionAndRecognition/blob/main/README.md#%E6%96%87%E5%AD%97%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%9E%8B%E7%92%B0%E5%A2%83 "link")
+    * [文字辨識模型環境](https://github.com/sarah862024/SceneViewTextPositionAndRecognition/blob/main/README.md#%E6%96%87%E5%AD%97%E8%BE%A8%E8%AD%98%E6%A8%A1%E5%9E%8B%E7%92%B0%E5%A2%83 "link")
   * [訓練資料前處理](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E8%A8%93%E7%B7%B4%E8%B3%87%E6%96%99%E5%89%8D%E8%99%95%E7%90%86 "link")
     * [取得中文字元文字檔(ChineseCharList.txt)](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%96%E5%BE%97%E4%B8%AD%E6%96%87%E5%AD%97%E5%85%83%E6%96%87%E5%AD%97%E6%AA%94chinesecharlisttxt "link")
     * [擷取出資料集所有影像中的文字區塊](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E6%93%B7%E5%8F%96%E5%87%BA%E8%B3%87%E6%96%99%E9%9B%86%E6%89%80%E6%9C%89%E5%BD%B1%E5%83%8F%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E5%8D%80%E5%A1%8A "link")
@@ -26,18 +26,18 @@ Taiwan Scene View Text Position and Recognition
   * [參考來源](https://github.com/sarah862024/SceneViewTextPositionAndRecognition#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90 "link")
 ## 環境
 ### 文字定位模型環境
-torch==0.4.1.post2
-torchvision==0.2.1
-opencv-python==3.4.2.17
-scikit-image==0.14.2
-scipy==1.1.0
+torch==0.4.1.post2  
+torchvision==0.2.1  
+opencv-python==3.4.2.17  
+scikit-image==0.14.2  
+scipy==1.1.0  
 ### 文字辨識模型環境
-torch==1.10.0+cu113
-lmdb==1.2.1
-pillow==8.2.0
-torchvision==0.11.1+cu113
-nltk==3.6.5
-natsort==8.0.0
+torch==1.10.0+cu113  
+lmdb==1.2.1  
+pillow==8.2.0  
+torchvision==0.11.1+cu113  
+nltk==3.6.5  
+natsort==8.0.0  
 ## 訓練資料前處理
 ### 取得中文字元文字檔`ChineseCharList.txt`  
 根據全部json檔案中的Label值取得不重複的所有中文字元  
