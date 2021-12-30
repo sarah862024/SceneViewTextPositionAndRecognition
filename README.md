@@ -92,9 +92,9 @@ python train.py --train_data data_lmdb_release/training/data/data_train --valid_
 ```
 ## 執行文字定位及辨識
 ### 執行文字定位模型
-若要偵測字元，需調整craft_run.py中的link_threshold參數，調整為1
-若要偵測字串，需調整craft_run.py中的link_threshold參數，調整為0.4
-輸出座標點文字檔`CraftOutput.txt`
+若要偵測字元，需調整craft_run.py中的link_threshold參數，調整為1  
+若要偵測字串，需調整craft_run.py中的link_threshold參數，調整為0.4  
+輸入影像的位置為`demoImage`資料夾，輸出座標點文字檔`CraftOutput.txt`
 ```python
 python ./craft_run.py
 ```
