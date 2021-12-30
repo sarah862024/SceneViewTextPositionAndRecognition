@@ -66,7 +66,9 @@ python ./toolCode/generateGT.py
 ```
 ## 擴增資料處理
 安裝此套件  
-`pip install trdg`  
+```
+pip install trdg
+```
 參考`參考資料`的擴增資料方法
 ## 訓練文字辨識模型
 ### 建立lmdb資料集
@@ -94,7 +96,7 @@ python train.py --train_data data_lmdb_release/training/data/data_train --valid_
 若要偵測字串，需調整craft_run.py中的link_threshold參數，調整為0.4
 輸出座標點文字檔`CraftOutput.txt`
 ```python
-python ./.py
+python ./craft_run.py
 ```
 ### 擷取出影像中的文字區塊儲存成影像
 根據文字定位模型所輸出的座標點文字檔`CraftOutput.txt`影像中的文字區塊擷取出來儲存成影像，且影像名稱命名為`原檔名_x1_y1_x2_y2_x3_y3_x4_y4.jpg`儲存至`positionCrop`資料夾內
